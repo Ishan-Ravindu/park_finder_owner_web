@@ -1,5 +1,24 @@
+import { useEffect } from "react";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+
 const App = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  useEffect(() => {
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkThemeMq.matches) {
+      // Theme set to dark.
+      document.documentElement.classList.add("dark");
+    } else {
+      // Theme set to light.
+      document.documentElement.classList.remove("dark");
+    }
+  });
+  return (
+    <>
+      {/* <SignIn /> */}
+      <SignUp />
+    </>
+  );
 };
 
 export default App;
